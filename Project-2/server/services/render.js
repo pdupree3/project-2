@@ -3,7 +3,7 @@ const axios = require('axios');
 
 exports.homeRoutes = (req,res) => {
     // Make a get request to /api/users
-    axios.get('https://boiling-ravine-33753.herokuapp.com/')
+    axios.get('https://boiling-ravine-33753.herokuapp.com/users')
     .then(function(response){
         // console.log(response.data)
         res.render('index',{users: response.data});
@@ -21,7 +21,7 @@ exports.add_user = (req,res)=>{
 // const user = userdata.data;
 
 exports.update_user = (req, res)=>{
-    axios.get('https://boiling-ravine-33753.herokuapp.com/', {params:{id:req.query.id}})
+    axios.get('https://boiling-ravine-33753.herokuapp.com/users', {params:{id:req.query.id}})
         .then(function(userdata){
             res.render("update_user", {user : userdata.data}) 
         })
